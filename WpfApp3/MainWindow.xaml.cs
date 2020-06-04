@@ -27,6 +27,7 @@ namespace WpfApp3
             InitializeComponent();
             _stopwatch = new ObservableStopwatch();
             DataContext = _stopwatch;
+            _stopwatch.EndTime = DateTimeOffset.Now.AddMinutes(15);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

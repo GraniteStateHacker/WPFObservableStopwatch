@@ -22,11 +22,25 @@ namespace WpfApp3
         {
             get
             {
-                if (IsRunning)
+                if (IsRunning && _startTime.HasValue)
                     return (DateTimeOffset.Now - _startTime.Value).TotalSeconds.ToString();
                 return string.Empty;
             }
         }
+        public DateTimeOffset? EndTime { get; set; }
+
+        
+        public string Countdown
+        {
+            get
+            {
+                if (IsRunning && EndTime.HasValue)
+                    return (EndTime.Value - DateTimeOffset.Now).TotalSeconds.ToString();
+                return string.Empty;
+            }
+        }
+
+
 
         public ObservableStopwatch()
         {
@@ -38,6 +52,7 @@ namespace WpfApp3
         private void _ticker_Tick(object sender, EventArgs e)
         {
             OnPropertyChanged(nameof(Elapsed));
+            OnPropertyChanged(nameof(Countdown));
         }
 
         public void Toggle()
@@ -51,6 +66,7 @@ namespace WpfApp3
                 Start();
             }
         }
+
 
         private void Start()
         {

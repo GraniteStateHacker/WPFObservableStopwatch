@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="283,101,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="283,50,0,0" TextWrapping="Wrap" Text="{Binding Elapsed}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="283,50,0,0" TextWrapping="Wrap" Text="{Binding Countdown}" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
